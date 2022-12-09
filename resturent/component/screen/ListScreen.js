@@ -21,16 +21,18 @@ const styles = StyleSheet.create({
     image:{
         height:200,
         width:250,
-        margin:5
+        margin:5,
+        marginLeft:10,
     },
 
     name:{
         fontWeight:'bold',
-        marginLeft:10,
+        marginLeft:15,
     },
     review:{
         flexDirection: "row",
         paddingLeft:9,
+        marginBottom:10,
     }
 })
 

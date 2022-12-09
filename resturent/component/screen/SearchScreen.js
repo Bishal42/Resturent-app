@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {View,Text,StyleSheet,Button} from 'react-native'
+import {View,Text,StyleSheet,ScrollView} from 'react-native'
 import SearchBar from '../SearchBar';
 import yelp from '../../src/api/yelp';
 import ResultList from '../ResultList';
@@ -44,7 +44,7 @@ const SearchScreen = () => {
     },[])
     
     return(
-    <View>
+    <View style={styles.container}>
         <SearchBar 
         term={term} 
         onTermChange={newTerm => setTerm(newTerm)}
@@ -53,11 +53,11 @@ const SearchScreen = () => {
         }}
         />
         <Text style={{color:'red'}}>{errorMessage}</Text>
-       
-        <ResultList results = {ReasultByPrice ('$')} title='Sasto wala' />
-        <ResultList results = {ReasultByPrice ('$$')} title='Thika wala' />
-        <ResultList results = {ReasultByPrice ('$$$')} title='Last mahango ' />
-       
+        <ScrollView>
+            <ResultList results = {ReasultByPrice ('$')} title='Sasto wala' />
+            <ResultList results = {ReasultByPrice ('$$')} title='Thika wala' />
+            <ResultList results = {ReasultByPrice ('$$$')} title='Last mahango ' />
+        </ScrollView>
 
     </View>
     )
@@ -66,6 +66,9 @@ const SearchScreen = () => {
 const styles = StyleSheet.create({
     text:{
         margin:20,
+    },
+    container:{
+        flex:1,
     }
 });
 
