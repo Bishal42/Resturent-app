@@ -35,7 +35,7 @@ const styles= StyleSheet.create({
         padding:5,
     },
     text:{
-    
+        width:'90%',
         fontWeight:'bold',
     }
 })

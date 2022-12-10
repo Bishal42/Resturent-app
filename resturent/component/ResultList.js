@@ -1,19 +1,24 @@
 import React from 'react'
-import {View,StyleSheet,Text,FlatList} from 'react-native'
+import {View,StyleSheet,Text,FlatList,TouchableOpacity} from 'react-native'
+import { withNavigation } from 'react-navigation'
 import ListScreen from './screen/ListScreen'
 
-const ResultList = ({title,results}) => {
+const ResultList = ({title,results,navigation}) => {
   return (
-    <View>
+    <View >
          <Text style={styles.title}>{title}</Text>
         <FlatList
+        style={styles.container}
         horizontal= {true}
         showsHorizontalScrollIndicator={false}
         data={results}
         keyExtractor={result => result.id}
         renderItem={({item}) =>{
             return (
-                <ListScreen result={item} />
+                <TouchableOpacity
+                 onPress={()=>navigation.navigate('ResultDetail')}>
+                   <ListScreen result={item} />
+                </TouchableOpacity>
             )
         } }
         >
@@ -28,7 +33,12 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         fontSize:18,
         marginLeft:15,
+        color:'#843A87',
+    },
+    container:{
+        borderWidth:1,
+        borderColor:'#F1C8D4'
     }
 });
 
-export default ResultList
+export default withNavigation(ResultList) ;

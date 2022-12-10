@@ -10,8 +10,8 @@ const ListScreen =( { result }) =>{
         />
             <Text style= {styles.name}>{result.name}</Text>
             <View style={styles.review}>
-            <Text> Rating:{result.rating} , </Text>
-            <Text> Reviews:{result.review_count} </Text>
+                <Text> Rating:{result.rating} , </Text>
+                <Text> Reviews:{result.review_count} </Text>
             </View>
         </View>
     )
@@ -19,8 +19,8 @@ const ListScreen =( { result }) =>{
 
 const styles = StyleSheet.create({
     image:{
-        height:200,
-        width:250,
+        height:150,
+        width:200,
         margin:5,
         marginLeft:10,
     },
@@ -28,11 +28,13 @@ const styles = StyleSheet.create({
     name:{
         fontWeight:'bold',
         marginLeft:15,
+        color:'#773B60',
     },
     review:{
         flexDirection: "row",
         paddingLeft:9,
         marginBottom:10,
+        color:'#773B60',    
     }
 })
 

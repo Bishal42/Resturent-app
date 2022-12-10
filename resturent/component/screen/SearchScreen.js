@@ -40,7 +40,7 @@ const SearchScreen = () => {
 
     //use useEffect for search at the first time whem app load 
     useEffect(()=>{
-        searchApi('pasta');
+        searchApi('noodles');
     },[])
     
     return(
