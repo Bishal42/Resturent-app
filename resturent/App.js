@@ -13,7 +13,7 @@ const navigator = createStackNavigator (
   }, {
   initialRouteName :'MySearch',
   defaultNavigationOptions: {
-    title :'Business Search'
+    title :'Food Search'
   }
 })
 export default createAppContainer(navigator)

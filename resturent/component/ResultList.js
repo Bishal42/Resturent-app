@@ -4,11 +4,16 @@ import { withNavigation } from 'react-navigation'
 import ListScreen from './screen/ListScreen'
 
 const ResultList = ({title,results,navigation}) => {
+    
+    //when there is no any result to show it will not display the item
+    if (!results.length){
+        return null;
+    }
+
   return (
     <View >
          <Text style={styles.title}>{title}</Text>
         <FlatList
-        style={styles.container}
         horizontal= {true}
         showsHorizontalScrollIndicator={false}
         data={results}
@@ -16,7 +21,9 @@ const ResultList = ({title,results,navigation}) => {
         renderItem={({item}) =>{
             return (
                 <TouchableOpacity
-                 onPress={()=>navigation.navigate('ResultDetail')}>
+                style={styles.list}
+                 onPress={()=>navigation.navigate('ResultDetail',{ id: item.id })}// passing the id when the user click on the prouct
+                 >
                    <ListScreen result={item} />
                 </TouchableOpacity>
             )
@@ -35,9 +42,10 @@ const styles = StyleSheet.create({
         marginLeft:15,
         color:'#843A87',
     },
-    container:{
-        borderWidth:1,
-        borderColor:'#F1C8D4'
+    list:{
+        borderWidth:2,
+        borderColor:'#F1C8D4',
+        marginLeft:5,
     }
 });
 
